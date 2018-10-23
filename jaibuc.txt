@@ -2,6 +2,7 @@ BEGINING.
 XXX XY-1.
 XXXX Y.
 XXXX Z.
+XX XXXX.
 
 BODY.
 
@@ -9,6 +10,7 @@ MOVE 15 TO Z.
 MOVE X TO Y.
 
 PRINT "Please enter a number ? ";X;"Some String".
+PRINT "Please enter a number ? ";X.
 PRINT X.
 INPUT Y.
 INPUT Y;Z;C;V.
