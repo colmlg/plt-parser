@@ -31,7 +31,7 @@ X+[ ][0-9]+.*               { printf("%s doesn't match \n", yytext); };
 X+                          { printf("Found variable declaration %s of size %d \n", yytext, getSize(yytext)); }
 [0-9]+                      { printf("Found digit: %s \n", yytext);}
 {VARIABLE}                  { printf("Found variable name: %s \n", yytext);  }
-\"(\\.|[^"\\])*\"           { printf("Found text string: %s \n", yytext); }
+\"[^"\n]*\"                   { printf("Found text string: %s \n", yytext); }
 \.                          { printf("Found terminator: %s \n", yytext); }
 .                           ;
 %%
