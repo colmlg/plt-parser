@@ -1,19 +1,14 @@
-BEGINiNG.
-XXX xY-1.
-XxXX Y.
+BEGINING.
+XXX XY-1.
+XXXX Y.
 XXXX Z.
-XXXXXXXX XXX.
-XXXXXX 12Z.
-
 BODY.
 
-MOVE 15 TO Z.
-MOVE XY TO Y.
 
-PRINT "Please enter a number ? ";XY;"Some String".
-PRINT XY.
+PRINT "Please enter a number? ".
 INPUT Y.
-INPUT Y;Z;C;V.
+
+MOVE 1500 TO Z.
 ADD Y TO Z.
 PRINT XY-1;" + ";Y;"=";Z.
 

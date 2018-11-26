@@ -1,3 +1,11 @@
+#Flex and Bison Intermediate Files
+*.yy.c
+*.tab.h
+*.tab.c
+
+#Executable
+parser
+
 # Prerequisites
 *.d
 

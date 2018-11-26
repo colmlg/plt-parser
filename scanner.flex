@@ -1,6 +1,6 @@
 %{
 #include <stdio.h>
-    
+#include "parser.tab.h"
 int getSize(char *x) {
     int counter = 0;
     while (*x++) {
@@ -8,34 +8,29 @@ int getSize(char *x) {
     }
     return counter;
 }
+
 %}
 
 %option noyywrap
 %option caseless
-
-VARIABLE    [A-Z][A-Z0-9\-]*
+%option yylineno
 
 %%
 [\t\n ]+                    /* Ignore whitespace */ ;
-BEGINING                    |
-BODY                        |
-END                         |
-MOVE                        |
-TO                          |
-ADD                         |
-INPUT                       |
-PRINT                       { printf("Found keyword: %s \n", yytext); }
-;                           { printf("Found semicolon\n"); }
-X+[ ]X+                     { printf("%s doesn't match \n", yytext); };
-X+[ ][0-9]+.*               { printf("%s doesn't match \n", yytext); };
-X+                          { printf("Found variable declaration %s of size %d \n", yytext, getSize(yytext)); }
-[0-9]+                      { printf("Found digit: %s \n", yytext);}
-{VARIABLE}                  { printf("Found variable name: %s \n", yytext);  }
-\"[^"\n]*\"                   { printf("Found text string: %s \n", yytext); }
-\.                          { printf("Found terminator: %s \n", yytext); }
-.                           ;
+BEGINING                    { return BEGINING; }
+BODY                        { return BODY; }
+END                         { return END; }
+MOVE                        { return MOVE; }
+TO                          { return TO; }
+ADD                         { return ADD; }
+INPUT                       { return INPUT; }
+PRINT                       { return PRINT; }
+;                           { return SEMICOLON; }
+X+                          { yylval.length = getSize(yytext); return NUMSIZE; }
+[0-9]+                      { yylval.length = getSize(yytext); return INTEGER; }
+\"[^"\n]*\"                 { yylval.value = strdup(yytext); return STRING; }
+[A-Z]+[A-Z0-9\-]*           { yylval.value = strdup(yytext); return IDENTIFIER; }
+\.                          { return TERMINATOR; }
+. ;
 %%
 
-int main() {
-  yylex();
-}
