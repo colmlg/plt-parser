@@ -1,15 +1,19 @@
 BEGINING.
 XXX XY-1.
 XXXX Y.
-XXXX Z.
+XXx z.
+XXXX LX.
+XXXX JAS.
+XXXX AQX.
+XXXX BXX-1212.
+XXXX H234S.
+
 BODY.
-
-
 PRINT "Please enter a number? ".
 INPUT Y.
 
-MOVE 1500 TO Z.
-ADD Y TO Z.
+MOVE 150 TO Z.
+ADD 150 TO Z.
 PRINT XY-1;" + ";Y;"=";Z.
 
 END.

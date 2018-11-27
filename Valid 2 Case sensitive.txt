@@ -1,0 +1,18 @@
+Begining.
+XXX xy-1.
+xxxx y.
+XX z-1.
+
+BoDy.
+PRINT "Please enter a number? ".
+Input y.
+
+move 15 TO z-1.
+add y TO z-1.
+PRINT xy-1.
+print" + ".
+print y.
+print"=".
+print z-1.
+
+End.

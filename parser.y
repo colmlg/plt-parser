@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdbool.h>
+#include <ctype.h>
 extern int yylex();
 extern int yyparse();
 extern int yylineno;
@@ -84,7 +85,21 @@ void yyerror(const char* s) {
     hasErrors = true;
 }
 
+void uppercase(char * temp) {
+  char * name;
+  name = strtok(temp,":");
+
+  // Convert to upper case
+  char *s = name;
+  while (*s) {
+    *s = toupper((unsigned char) *s);
+    s++;
+  }
+
+}
+
 bool isVarDeclared(char* string) {
+    uppercase(string);
     for(int i = 0; i < declaredVariables; i++) {
         if(strcmp(string, variableIdentifiers[i]) == 0) {
             return true;
@@ -94,6 +109,7 @@ bool isVarDeclared(char* string) {
 }
 
 void createVariable(int size, char* varName) {
+     uppercase(varName);
     if(isVarDeclared(varName)) {
         yyerror("Identifier already initialized");
         return;
@@ -112,6 +128,7 @@ void isVarInitialized(char *var) {
 }
 
 int getVarSize(char* var) {
+    uppercase(var);
     for (int i = 0; i < declaredVariables; i++) {
         if (strcmp(var, variableIdentifiers[i]) == 0) {
             return variableSizes[i];

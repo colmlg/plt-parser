@@ -1,0 +1,14 @@
+BEGINING.
+XXX 1-XY.
+XXXX 4Y.
+XXXX Z.
+
+BODY.
+PRINT "Please enter a number?.
+INPUT Y.
+
+MOVE 15 TO Z.
+ADD Y TO Z.
+PRINT X;" + ";Y;"=;Z.
+
+END.

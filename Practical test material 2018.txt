@@ -1,0 +1,130 @@
+invalid, wrong sequence
+END.
+BODY.
+XXX XY-1.
+XXXX Y.
+XXXX Z.
+
+MOVE 15 TO Z.
+ADD Y TO Z.
+PRINT NoNDeclared;" + ";Y;"=";Z.
+
+PRINT "Please enter a number? ".
+INPUT Y.
+
+BEGINING.
+
+
+Invalid wrong variable name, wrong print
+BEGINING.
+XXX 1-XY.
+XXXX 4Y.
+XXXX Z.
+
+BODY.
+PRINT "Please enter a number?.
+INPUT Y.
+
+MOVE 15 TO Z.
+ADD Y TO Z.
+PRINT X;" + ";Y;"=;Z.
+
+END.
+
+Invalid missing full stop
+BEGINING.
+XXXXX XY-1.
+XXXX Y.
+XXXX Z.
+
+BODY. add Y to XY-1.
+
+MOVE 99 TO Z.
+PRINT 99;" + ";66;"="
+ADD Y TO Z.
+END.
+
+Valid 1
+BEGINING.
+XXX XY-1.
+XXXX Y;Z.
+
+BODY.
+PRINT "Please enter a number? ".
+INPUT Y.
+
+ADD Y TO Z.
+MOVE 15 TO Z.
+PRINT X;" + ";Y;"=";Z.
+
+END.
+
+Valid 2: Case sensitive
+Begining.
+XXX xy-1.
+xxxx y.
+XX z_1.
+
+BoDy.
+PRINT "Please enter a number? ".
+Input y.
+
+move 15 TO z_1.
+add y TO z_1.
+PRINT xy-1.
+print" + ".
+print y.
+print"=".
+print z_1.
+
+End.
+
+Valid 3:
+BEGINING.
+XXXXX XY-1.
+XXXX Y.
+XXXX Z.
+
+BODY. add Y to XY-1.
+
+MOVE 99 TO Z.
+PRINT Z.
+PRINT 99;" + ";66;"=".
+ADD Y TO Z.
+END.
+
+Invalid Move to a too-small variable
+BEGINING.
+XXXXX XY-1.
+XXXX Y.
+XXXX Z.
+
+BODY. add Y to XY-1.
+
+MOVE 99 TO Z.
+PRINT Z.
+PRINT 99;" + ";66;"=".
+ADD Y TO Z.
+END.
+
+Invalid Move bigger variable to variable
+BEGINING.
+XXX XY-1.
+XXXX Y.
+XX Z.
+
+BODY.
+MOVE 1555 TO Y.
+
+MOVE Y TO Z.
+ADD Y TO Z.
+PRINT X;" + ";Y;"=";Z.
+
+END.
+
+Question types:
+1) Where in the code you handle to add variable to variable in addition to the number to variable?
+2) Where in your code you handle to disallow the moving of the content of the larger variable to the smaller variable?
+3) Where in your code you handle to have multiple (print/variable declaration) statementes together?
+4) Where in the code you ensure the overall sequence of the code should be: Begin declaration body statements end?
+5] What does this bit do?

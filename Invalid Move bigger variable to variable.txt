@@ -1,0 +1,13 @@
+BEGINING.
+XXX XY-1.
+XXXX Y.
+XX Z.
+
+BODY.
+MOVE 1555 TO Y.
+
+MOVE Y TO Z.
+ADD Y TO Z.
+PRINT X;" + ";Y;"=";Z.
+
+END.
