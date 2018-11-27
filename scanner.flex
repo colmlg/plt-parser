@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include "parser.tab.h"
+void yyerror(const char *s);
 int getSize(char *x) {
     int counter = 0;
     while (*x++) {
@@ -29,6 +30,7 @@ PRINT                       { return PRINT; }
 X+                          { yylval.length = getSize(yytext); return NUMSIZE; }
 [0-9]+                      { yylval.length = getSize(yytext); return INTEGER; }
 \"[^"\n]*\"                 { yylval.value = strdup(yytext); return STRING; }
+[_=+!"£$%^&*()\\\-]+[A-Z0-9\-]* { return *yytext; }
 [A-Z]+[A-Z0-9\-]*           { yylval.value = strdup(yytext); return IDENTIFIER; }
 \.                          { return TERMINATOR; }
 . ;
